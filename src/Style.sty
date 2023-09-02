@@ -1,0 +1,103 @@
+\ProvidesPackage{Style}
+
+
+
+\frenchspacing
+\pagestyle{plain}
+\usepackage{enumitem}
+\setlist{nosep}
+\setlist[enumerate]{label*=\arabic*.}
+\setlist[description]{style=nextline}
+\usepackage[left=3cm, right=1.5cm, vmargin=2cm]{geometry}
+\linespread{1.5} % line spacing 1.5
+\usepackage{indentfirst} % indent first paragraph
+\setlength{\parindent}{1.25cm}
+\sloppy
+\usepackage{cmap} % for pdfLaTeX
+\usepackage[T1,T2A]{fontenc} % correct encoding for pdfLaTeX
+\usepackage[utf8]{inputenc} % correct encoding source file
+\usepackage[english,russian]{babel} % correct language
+\usepackage[labelsep=period]{caption}
+\usepackage{longtable}
+
+\linespread{1.5} % line spacing 1.5
+\setlength{\parindent}{1.25cm}
+\sloppy
+
+% for graphics
+\usepackage{graphicx}
+\usepackage{amsmath}
+
+
+\renewcommand{\figurename}{Рисунок}
+
+\newcommand{\img}[2] {
+	\begin{figure}[ht!]
+		\center{\includegraphics[width=0.9\textwidth]{#1}}
+		\caption{#2}
+		\label{fig:#1}
+	\end{figure}
+}
+
+\renewenvironment{enumerate}{
+	\begin{list}{\labelenumi}
+	  {\usecounter{enumi} \def\makelabel##1{\hss ##1}
+	\setlength{\itemsep}{0pt}
+	\setlength{\parskip}{0pt}
+	\setlength{\parsep}{0pt}
+	\setlength{\topsep}{0pt}
+	\setlength{\partopsep}{0pt}
+}}{\end{list}}
+
+\renewenvironment{itemize}{
+	\begin{list}{\labelitemi}
+	  {\def\makelabel##1{\hss ##1}
+	\setlength{\itemsep}{0pt}
+	\setlength{\parskip}{0pt}
+	\setlength{\parsep}{0pt}
+	\setlength{\topsep}{0pt}
+	\setlength{\partopsep}{0pt}
+}}{\end{list}}
+
+% self title function
+\newcommand{\mytitle}[1]{
+	\begin{center}
+		\includegraphics[scale=0.5]{../logo.png} \break % вставка логотипа
+		\normalsize{МИНОБРНАУКИ РОССИИ}\\
+		\normalsize{Федеральное государственное бюджетное образовательное учреждение высшего образования}\\
+		\normalsize{\textbf{«МИРЭА --- Российский технологический университет»}}\\
+		\large{\textbf{РТУ МИРЭА}}\\
+		\bigskip \hrule \smallskip \hrule \smallskip
+		\textbf{Институт Информационных технологий (ИИТ)}\\
+		\textbf{Кафедра практической и прикладной инфоматики (ППИ)}\\
+		\vfill
+		\large{\textbf{ОТЧЕТ ПО ПРАКТИЧЕСКОЙ РАБОТЕ}}\\
+		\normalsize{по дисциплине «Моделирование бизнес-процессов»}\\
+		\vfill
+		\large{\textbf{Практическое задание №#1}}\\
+		\large{\textbf{Практическое задание №1 - №2}}\\
+		\vfill
+		\vfill
+		\normalsize{
+			\begin{tabular}{llr}
+				Студент группы
+				& ИКБО-06-21  Шестаков Я.Е.
+				& $\underset{\text{(подпись)}}{\underline{\hspace{0.2\textwidth}}}$ \\\\
+				Доцент & Геращенко Л.А
+				& $\underset{\text{(подпись)}}{\underline{\hspace{0.2\textwidth}}}$ \\\\\\
+				Отчет предоставлен
+				& <<\underline{\hspace{1cm}}>>\underline{\hspace{3cm}} 2023г
+				& \\\\
+			\end{tabular}
+		}
+	\end{center}
+
+	\begin{center} Москва 2023 \end{center}
+
+
+
+	\thispagestyle{empty}
+	\newpage
+}
+
+\newcommand\includegrph[1]{\includegraphics[width=1\textwidth]{#1}}
